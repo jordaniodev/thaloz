@@ -15,9 +15,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class ListComponent implements OnInit {
 
-  public users$!: Observable<User[]>; // Fluxo original de usuários
-  public filteredUsers$!: Observable<User[]>; // Fluxo filtrado de usuários
-  public filterControl: FormControl; // Controlador para o input de filtro
+  public users$!: Observable<User[]>; 
+  public filteredUsers$!: Observable<User[]>; 
+  public filterControl: FormControl; 
 
   constructor(private userService: UsersService) {
     this.filterControl = new FormControl('');
