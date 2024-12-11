@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="container-search">
+      <div class="form-group">
+        <label for="name">Name filter</label>
+        <input
+          aria-describedby="Name"
+          class="form-control"
+          id="name"
+          placeholder="Enter Name"
+          type="text"
+          [formControl]="filterControl"
+        />
+      </div>
+    </div>
+    <div class="list-clients" *ngIf="filteredUsers$ | async as users; else loading">
+      <ng-container *ngIf="users.length > 0; else noItems">
+        <div class="card" *ngFor="let user of users">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.name }}</h5>
+            <p class="card-text">{{ user.email }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading users...</p>
+  </ng-template>
+  <ng-template #noItems>
+    <p>No users match your search criteria.</p>
+  </ng-template>
+  
